@@ -43,6 +43,10 @@ The repository does not contain game binaries, assemblies, decompiled source cod
 
 NeonSchedule1 is a monorepo for the website and its calculation engine.
 
+### Exporter
+
+See [Exporter development setup](docs/exporter-development-setup.md) for the required local tools and setup steps.
+
 ## License
 
 Original NeonSchedule1 source code is licensed under the [Apache License 2.0](../LICENSE).
