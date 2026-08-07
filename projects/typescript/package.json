@@ -11,6 +11,7 @@
     "solver:verify": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver verify",
     "solver:native": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver native",
     "solver:precompute": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver precompute",
+    "solver:precompute:package": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver precompute:package",
     "solver:precompute:refresh": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver precompute:refresh",
     "solver:precompute:verify": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver precompute:verify"
   },
