@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pnpm --recursive --if-present build",
     "check": "pnpm --recursive --if-present check",
-    "test": "pnpm --recursive --if-present test",
+    "test": "vitest run",
     "data:normalize": "pnpm --filter @neons1/core build && pnpm --filter @neons1/data-compiler build && pnpm --filter @neons1/data-compiler normalize",
     "solver:benchmark": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver benchmark",
     "solver:benchmark:allocation": "pnpm --filter @neons1/core build && pnpm --filter @neons1/solver build && pnpm --filter @neons1/solver benchmark:allocation",
