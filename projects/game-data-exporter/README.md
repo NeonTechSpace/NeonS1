@@ -8,7 +8,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.10` was built against Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.13` targets Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
@@ -113,9 +113,11 @@ The exporter writes the following data:
 - Recipes, stations, seeds, growing, packaging, additives, soils, quality, and oven transformations
 - Items, prices, shops, suppliers, listings, unlocks, properties, businesses, and logistics
 - People, customers, preferences, relationships, schedules, and presentations
-- Map regions, locations, services, navigation, access zones, and shop positions
+- Map regions, locations, services, employee-agent navigation, access zones, and shop positions
 - Buildables, footprints, colliders, surfaces, docks, storage, interaction points, and placement data
 - Mesh, material, texture, sprite, icon, and other visual references
+
+Navigation samples and edges use the agent type shared by the employee prefabs. The export records that agent's ID, name, dimensions, slope, step height, and employee types.
 
 ## Export and validation modes
 
