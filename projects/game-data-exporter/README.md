@@ -8,7 +8,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.9` was built against Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.10` was built against Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
@@ -116,6 +116,54 @@ The exporter writes the following data:
 - Map regions, locations, services, navigation, access zones, and shop positions
 - Buildables, footprints, colliders, surfaces, docks, storage, interaction points, and placement data
 - Mesh, material, texture, sprite, icon, and other visual references
+
+## Export and validation modes
+
+The DLL selects one operation when a save finishes loading:
+
+- With no validation request file, it runs the full data export.
+- With `native-recipe-validation-request.json`, it evaluates the requested mixing cases in the game.
+- With `native-convex-validation-request.json`, it raycasts the requested convex surface colliders in the game.
+
+The request must be in the configured exporter output directory before the save loads.
+If both request files exist, the DLL reports an error and runs neither operation.
+The TypeScript commands create the request, verify the response hash and dataset identity, retain evidence under the ignored `.local` directory, and remove the staged files after a successful comparison.
+
+Run recipe validation from `projects/typescript`.
+
+PowerShell:
+
+```powershell
+pnpm solver:native prepare --game-directory 'C:\Program Files (x86)\Steam\steamapps\common\Schedule I'
+# Start the game and load a save, then:
+pnpm solver:native compare --game-directory 'C:\Program Files (x86)\Steam\steamapps\common\Schedule I'
+```
+
+Bash on Windows:
+
+```bash
+pnpm solver:native prepare --game-directory 'C:/Program Files (x86)/Steam/steamapps/common/Schedule I'
+# Start the game and load a save, then:
+pnpm solver:native compare --game-directory 'C:/Program Files (x86)/Steam/steamapps/common/Schedule I'
+```
+
+Run convex-collider validation from the same directory.
+
+PowerShell:
+
+```powershell
+pnpm data:validate-convex prepare --game-directory 'C:\Program Files (x86)\Steam\steamapps\common\Schedule I'
+# Start the game and load a save, then:
+pnpm data:validate-convex compare --game-directory 'C:\Program Files (x86)\Steam\steamapps\common\Schedule I'
+```
+
+Bash on Windows:
+
+```bash
+pnpm data:validate-convex prepare --game-directory 'C:/Program Files (x86)/Steam/steamapps/common/Schedule I'
+# Start the game and load a save, then:
+pnpm data:validate-convex compare --game-directory 'C:/Program Files (x86)/Steam/steamapps/common/Schedule I'
+```
 
 This is an explicit versioned export schema, not an unrestricted Unity object or save dump.
 It excludes player names, organization names, Steam identifiers, unrelated save state, assemblies, and decompiled code.
