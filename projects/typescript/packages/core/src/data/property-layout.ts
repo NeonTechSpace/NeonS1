@@ -44,7 +44,7 @@ export const PropertyGridSchema = type({
 export type PropertyGrid = typeof PropertyGridSchema.infer;
 
 export const PropertyLayoutSchema = type({
-    schema: "'neons1-property-layout-1'",
+    schema: "'neons1-property-layout-2'",
     propertyCode: 'string',
     propertyName: 'string',
     worldPosition: Vector3Schema,

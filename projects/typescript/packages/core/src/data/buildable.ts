@@ -54,7 +54,7 @@ export const InteractionPointSchema = type({
 export type InteractionPoint = typeof InteractionPointSchema.infer;
 
 export const BuildableSchema = type({
-    schema: "'neons1-buildable-1'",
+    schema: "'neons1-buildable-2'",
     itemId: 'string',
     runtimeType: 'string',
     placement: BuildablePlacementSchema,
