@@ -8,7 +8,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.3` was built against Schedule I `0.4.6f11`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.3` was built against Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
