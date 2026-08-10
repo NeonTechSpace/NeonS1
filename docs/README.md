@@ -1,6 +1,7 @@
 # NeonSchedule1
 
 NeonSchedule1 is an unofficial, open-source mixing calculator and recipe optimizer for *Schedule I*.
+It is a passion project motivated by how much I enjoy playing the game and by my goal of making an accurate guide for it.
 The planned calculator supports manual mixing and recipe search by effects, ingredients, cost, value, and profit.
 
 > [!IMPORTANT]
@@ -37,7 +38,7 @@ Production solver results record the game version, dataset identity, algorithm v
 Game updates can change mixing behavior or values.
 Production data and solver artifacts are versioned so incompatible results are not reused.
 
-The repository does not contain game binaries, assemblies, decompiled source code, saves, player data, or game assets.
+The public repository must not contain game files, including binaries, assemblies, decompiled source code, saves, player data, assets, raw exports, or other raw data copied from the game.
 
 ## Development
 
