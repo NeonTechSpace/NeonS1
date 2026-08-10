@@ -8,7 +8,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.15` targets Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.16` targets Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
@@ -130,6 +130,8 @@ The DLL selects one operation when a save finishes loading:
 The request must be in the configured exporter output directory before the save loads.
 If both request files exist, the DLL reports an error and runs neither operation.
 The TypeScript commands create the request, verify the response hash and dataset identity, retain evidence under the ignored `.local` directory, and remove the staged files after a successful comparison.
+Recipe validation records the requested mixing rule profile and refuses to run unless the loaded save uses the same standard or seed-derived rotation profile.
+Pass `--mixing-seed NUMBER` to `solver:native prepare` for a seeded save; omit it for standard mixing.
 
 Run recipe validation from `projects/typescript`.
 
