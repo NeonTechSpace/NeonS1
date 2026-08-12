@@ -13,7 +13,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.17` targets Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.18` targets Schedule I `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
@@ -87,6 +87,8 @@ Game assemblies are referenced locally with `Private=false` and are not copied i
 
 A new save is sufficient once character creation and the tutorial are complete.
 The exporter does not require progression unlocks to enumerate the validated data.
+Full data export requires a save with randomized mixing maps disabled because normalized datasets contain the standard profile-neutral mixing rules.
+Seeded saves remain supported by recipe validation mode.
 
 By default, the exporter writes under the game process working directory:
 
