@@ -1,58 +1,55 @@
 # NeonSchedule1
 
-NeonSchedule1 is an unofficial, open-source mixing calculator and recipe optimizer for *Schedule I*.
-It is a passion project motivated by how much I enjoy playing the game and by my goal of making an accurate guide for it.
-The planned calculator supports manual mixing and recipe search by effects, ingredients, cost, value, and profit.
+NeonSchedule1 is an unofficial open-source project for building an accurate *Schedule I* mixing calculator and recipe optimizer.
+It is intended for players who want to explore recipes by ingredients, effects, cost, value, and profit.
+
+## Current availability
 
 > [!IMPORTANT]
-> NeonSchedule1 is in early development and does not have a public calculator yet.
+> NeonSchedule1 does not have a public website or player-ready calculator yet.
 
-## Planned features
+The repository contains substantial working calculation, search, data, and validation code for contributors.
+The web workspace is currently a placeholder with no application interface.
+Using the implemented tools requires a source checkout and local development setup.
+
+## What currently exists
+
+- Working code that calculates mixes and searches for recipes
+- Supporting calculations for customers, dealers, production, inventory, travel, and property planning
+- Local tools that collect, check, and prepare game data for those calculations
+
+These capabilities are development infrastructure and libraries.
+They are not exposed through a public player interface.
+The [development overview](docs/development.md#capability-status) records their current scope and limits.
+
+## Planned player features
 
 - Interactive mix building
 - Reverse search for desired effects
-- Cost, value, and profit optimization
-- Required and excluded ingredient filters
+- Ingredient and effect requirements and exclusions
+- Cost, value, profit, and recipe-length filters
 - Quick, Balanced, and Precise search modes
-- Search progress and ETA ranges
-- Game and data version details for every result
+- Clear game-version and data-version details
 - Shareable recipes
 
-## Search modes
+## Choose a path
 
-| Mode | Intended use |
-| --- | --- |
-| **Quick** | Return a useful result with the shortest wait |
-| **Balanced** | Explore more recipes within a moderate time budget |
-| **Precise** | Use the largest live depth and work limits |
+- [Understand the repository and start contributing](docs/development.md)
+- [Develop or validate the calculation engine](projects/typescript/README.md)
+- [Set up the game-data export tools](docs/exporter-development-setup.md)
+- [Read the detailed exporter manual](projects/game-data-exporter/README.md)
 
-Search modes change how much work the solver performs, not how mixing is modeled.
-A result is labeled exact only when the search proves it.
-A limited live result contains valid candidates from completed depths and names the state, work, or time limit that stopped the search.
+## Data boundary
 
-## Result evidence
-
-The calculation packages preserve ingredient order and apply effect transformations explicitly.
-Production solver results record the game version, dataset identity, algorithm version, source, and proof status.
-
-Game updates can change mixing behavior or values.
-Production data and solver artifacts are versioned so incompatible results are not reused.
-
-The public repository must not contain game files, including binaries, assemblies, decompiled source code, saves, player data, assets, raw exports, or other raw data copied from the game.
-
-## Development
-
-NeonSchedule1 is a monorepo for the website and its calculation engine.
-
-### Exporter
-
-See [Exporter development setup](docs/exporter-development-setup.md) for the required local tools and setup steps.
+The public repository contains original source code and documentation only.
+Do not commit or publish game binaries, assemblies, decompiled code, saves, player data, raw exports, or extracted game assets.
+The [development overview](docs/development.md#local-generated-and-publishable-files) explains which development outputs stay local.
 
 ## License
 
-Original NeonSchedule1 source code is licensed under the [Apache License 2.0](../LICENSE).
+Original NeonSchedule1 source code is licensed under the [Apache License 2.0](LICENSE).
 NeonSchedule1 is provided as is, without warranty of any kind, to the extent permitted by applicable law.
-The licence contains the complete warranty disclaimer and limitation of liability.
+The license contains the complete warranty disclaimer and limitation of liability.
 
 ## Disclaimer
 

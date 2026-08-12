@@ -1,9 +1,14 @@
 # Schedule I data export tools
 
+This is the detailed component manual for NeonSchedule1's local acquisition and native-validation tools.
+Read the [project README](../../README.md) for product status and player-facing plans.
+New contributors should start with the [repository development overview](../../docs/development.md) and the concise [exporter setup page](../../docs/exporter-development-setup.md).
+Return to the [TypeScript workspace guide](../typescript/README.md) for normalization, solver benchmarks, and generated artifact workflows.
+
 This directory contains two source-only C# tools for exporting data from a locally installed copy of Schedule I:
 
-- `in-game-exporter` builds a MelonLoader DLL that writes a versioned JSON report and directly readable assets.
-- `offline-asset-extractor` builds a console executable that recovers mesh geometry Unity marks as CPU-unreadable.
+- `in-game-exporter` builds a MelonLoader DLL that writes a versioned JSON report and directly readable assets
+- `offline-asset-extractor` builds a console executable that recovers mesh geometry Unity marks as CPU-unreadable
 
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
@@ -73,12 +78,12 @@ Game assemblies are referenced locally with `Private=false` and are not copied i
 
 ## Install and run the in-game exporter
 
-1. Close Schedule I.
-2. Remove or disable another copy of `NeonSchedule1.GameDataExporter.dll` so only one exporter handles the save-load event.
-3. Copy `NeonSchedule1.GameDataExporter.dll` into the game's `Mods` directory.
-4. Start Schedule I and load a save that is past character creation and the tutorial.
-5. Watch `MelonLoader/Latest.log` for progress.
-6. Wait for the final `Export complete` message before closing the game.
+1. Close Schedule I
+2. Remove or disable another copy of `NeonSchedule1.GameDataExporter.dll` so only one exporter handles the save-load event
+3. Copy `NeonSchedule1.GameDataExporter.dll` into the game's `Mods` directory
+4. Start Schedule I and load a save that is past character creation and the tutorial
+5. Watch `MelonLoader/Latest.log` for progress
+6. Wait for the final `Export complete` message before closing the game
 
 A new save is sufficient once character creation and the tutorial are complete.
 The exporter does not require progression unlocks to enumerate the validated data.
@@ -117,21 +122,23 @@ The exporter writes the following data:
 - Buildables, footprints, colliders, surfaces, docks, storage, interaction points, and placement data
 - Mesh, material, texture, sprite, icon, and other visual references
 
-Navigation samples and edges use the agent type shared by the employee prefabs. The export records that agent's ID, name, dimensions, slope, step height, and employee types.
+Navigation samples and edges use the agent type shared by the employee prefabs.
+The export records that agent's ID, name, dimensions, slope, step height, and employee types.
 
 ## Export and validation modes
 
 The DLL selects one operation when a save finishes loading:
 
-- With no validation request file, it runs the full data export.
-- With `native-recipe-validation-request.json`, it evaluates the requested mixing cases in the game.
-- With `native-convex-validation-request.json`, it raycasts the requested convex surface colliders in the game.
+- With no validation request file, it runs the full data export
+- With `native-recipe-validation-request.json`, it evaluates the requested mixing cases in the game
+- With `native-convex-validation-request.json`, it raycasts the requested convex surface colliders in the game
 
 The request must be in the configured exporter output directory before the save loads.
 If both request files exist, the DLL reports an error and runs neither operation.
 The TypeScript commands create the request, verify the response hash and dataset identity, retain evidence under the ignored `.local` directory, and remove the staged files after a successful comparison.
 Recipe validation records the requested mixing rule profile and refuses to run unless the loaded save uses the same standard or seed-derived rotation profile.
-Pass `--mixing-seed NUMBER` to `solver:native prepare` for a seeded save; omit it for standard mixing.
+Pass `--mixing-seed NUMBER` to `solver:native prepare` for a seeded save.
+Omit it for standard mixing.
 
 Run recipe validation from `projects/typescript`.
 
@@ -269,16 +276,16 @@ Distinct matching variants are preserved rather than guessed away.
 
 The DLL stage is complete only when:
 
-- The JSON report, SHA-256 file, and matching direct-asset directory exist.
-- The report hash matches the sidecar file.
-- The report records zero direct-asset verification errors.
+- The JSON report, SHA-256 file, and matching direct-asset directory exist
+- The report hash matches the sidecar file
+- The report records zero direct-asset verification errors
 
 The offline stage is complete only when:
 
-- The manifest source hash matches the DLL report.
-- Every CPU-unreadable report reference is represented.
-- No unresolved statuses remain.
-- Every GLB passes file-length, `glTF` header, and SHA-256 verification.
+- The manifest source hash matches the DLL report
+- Every CPU-unreadable report reference is represented
+- No unresolved statuses remain
+- Every GLB passes file-length, `glTF` header, and SHA-256 verification
 
 ## Output scope
 
