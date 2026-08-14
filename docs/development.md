@@ -1,7 +1,7 @@
 # NeonSchedule1 development overview
 
 This page explains what contributors can use today, what each repository area owns, and which parts still need a player-facing product.
-For a prerequisite-free introduction, current availability, and planned player features, start with the [project README](../README.md).
+For a prerequisite-free introduction, current availability, and planned player features, start with the [project README](/README.md).
 
 ## Current development state
 
@@ -37,7 +37,7 @@ The web workspace currently contains only its package manifest.
 | Production and inventory | Partial | Growing, packaging, additives, brick pressing, equipment needs, production time and cost, finished-recipe planning, inventory shortages, purchases, and property transfers | Implemented as composable planning calculations rather than one player workflow |
 | Shopping and movement | Partial | Shop options, seller allocation, multi-stop shopping routes, split pickups, capacity-limited return trips, schedule waiting, and remote delivery | Route claims require movement evidence supplied for the relevant player or vehicle |
 | People and world | Partial | People, relationships, schedules, map projection, shops, properties, services, access zones, and employee navigation data | Normalized data and calculations exist, but there is no live map or game connection |
-| Property blueprints | Partial | Placement validation, construction order, item cost, collision, access, temperature, production capacity, schedules, transfers, routing inputs, and logistics | Calculation and validation code only, with no blueprint editor or public browser |
+| Property blueprints | Partial | Placement validation, construction order, item cost, collision, access, temperature, production capacity, schedules, transfers, routing inputs, logistics, assigned employee service time, work priority, movement rules, and endpoint reachability candidates | Employee travel still depends on current position, task selection, runtime state, and unselected endpoints, and there is no blueprint editor or public browser |
 | Data pipeline | Tooling | Hash verification, schema validation, integrity checks, normalization, stable dataset identity, and corruption checks | Requires a local exporter acquisition |
 | Game-data tools | Tooling | In-game export, native recipe comparison, convex-collider validation, direct asset export, and offline mesh extraction | Windows-only local development tooling that requires the game and third-party prerequisites |
 | Website | Planned | Package ownership is reserved in the workspace | Placeholder only, with no source application or public deployment |
@@ -49,14 +49,14 @@ The source and tests remain authoritative when a capability changes.
 
 | Area | Responsibility | Status |
 | --- | --- | --- |
-| [`projects/typescript/packages/core`](../projects/typescript/packages/core) | Versioned data contracts and deterministic game calculations | Implemented private workspace package |
-| [`projects/typescript/packages/data-compiler`](../projects/typescript/packages/data-compiler) | Verification and normalization of local exporter output | Implemented command-line development tool |
-| [`projects/typescript/packages/solver`](../projects/typescript/packages/solver) | Recipe search, allocation, precomputation, benchmarking, runtime artifacts, and verification | Implemented private libraries and command-line tools |
-| [`projects/typescript/web`](../projects/typescript/web) | Future player-facing website | Placeholder package only |
-| [`projects/game-data-exporter`](../projects/game-data-exporter) | In-game acquisition, native validation, and offline mesh extraction | Implemented source-only local tools |
+| [`projects/typescript/packages/core`](/projects/typescript/packages/core) | Versioned data contracts and deterministic game calculations | Implemented private workspace package |
+| [`projects/typescript/packages/data-compiler`](/projects/typescript/packages/data-compiler) | Verification and normalization of local exporter output | Implemented command-line development tool |
+| [`projects/typescript/packages/solver`](/projects/typescript/packages/solver) | Recipe search, allocation, precomputation, benchmarking, runtime artifacts, and verification | Implemented private libraries and command-line tools |
+| [`projects/typescript/web`](/projects/typescript/web) | Future player-facing website | Placeholder package only |
+| [`projects/game-data-exporter`](/projects/game-data-exporter) | In-game acquisition, native validation, and offline mesh extraction | Implemented source-only local tools |
 
-The [TypeScript workspace guide](../projects/typescript/README.md) owns package commands and solver workflows.
-The [exporter manual](../projects/game-data-exporter/README.md) owns acquisition and in-game validation procedures.
+The [TypeScript workspace guide](/projects/typescript/README.md) owns package commands and solver workflows.
+The [exporter manual](/projects/game-data-exporter/README.md) owns acquisition and in-game validation procedures.
 
 ## Data flow
 
@@ -88,10 +88,10 @@ It does not currently define product architecture, deployment, accounts, persist
 
 ## Compatibility
 
-Exporter version `0.0.17` targets *Schedule I* `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Exporter version `0.0.21` targets *Schedule I* `0.4.6f12`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a new build and extraction audit.
 
-Normalizer version `0.0.35` defines the current normalized output contract.
+Normalizer version `0.0.36` defines the current normalized output contract.
 Normalized datasets record the game version, normalizer version, source hashes, file hashes, counts, and one dataset identity.
 Solver artifacts bind to compatible dataset and algorithm identities.
 No game acquisition or normalized production dataset is committed to this repository.
@@ -112,13 +112,13 @@ pnpm build
 `pnpm check` runs the package TypeScript checks.
 `pnpm test` runs the workspace Vitest suite.
 `pnpm build` builds each package that defines a build script.
-The [TypeScript workspace guide](../projects/typescript/README.md) explains normalization, benchmarks, native validation, and precomputation.
+The [TypeScript workspace guide](/projects/typescript/README.md) explains normalization, benchmarks, native validation, and precomputation.
 
 ## Exporter development
 
 Exporter development requires Windows, a local licensed game installation, .NET 10, MelonLoader, S1API, and AssetRipper for the offline visual pass.
-Start with the concise [exporter setup page](exporter-development-setup.md).
-Use the [detailed exporter manual](../projects/game-data-exporter/README.md) for build commands, output verification, native validation, and recovery procedures.
+Start with the concise [exporter setup page](/docs/exporter-development-setup.md).
+Use the [detailed exporter manual](/projects/game-data-exporter/README.md) for build commands, output verification, native validation, and recovery procedures.
 
 ## Local, generated, and publishable files
 
@@ -133,12 +133,12 @@ Raw acquisitions, extracted assets, normalized local datasets, benchmark reports
 They are not approved public artifacts merely because a tool can generate them.
 
 Never publish game binaries, assemblies, decompiled code, saves, player identifiers, raw exporter reports, or extracted game assets from this repository.
-The [project README](../README.md#data-boundary) states the public data boundary.
+The [project README](/README.md#data-boundary) states the public data boundary.
 
 ## Documentation paths
 
-- Product purpose, availability, and planned player features belong in the [project README](../README.md)
+- Product purpose, availability, and planned player features belong in the [project README](/README.md)
 - Contributor status, ownership, architecture, and data flow belong on this page
-- TypeScript package commands and solver workflows belong in the [TypeScript workspace guide](../projects/typescript/README.md)
-- Exporter onboarding belongs in the [exporter setup page](exporter-development-setup.md)
-- Export, extraction, native validation, and completion procedures belong in the [exporter manual](../projects/game-data-exporter/README.md)
+- TypeScript package commands and solver workflows belong in the [TypeScript workspace guide](/projects/typescript/README.md)
+- Exporter onboarding belongs in the [exporter setup page](/docs/exporter-development-setup.md)
+- Export, extraction, native validation, and completion procedures belong in the [exporter manual](/projects/game-data-exporter/README.md)

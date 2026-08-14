@@ -3,9 +3,9 @@
 This workspace contains NeonSchedule1's calculation engine, data compiler, solver, tests, and a placeholder for the future website.
 It is contributor-facing infrastructure and does not provide a public calculator.
 
-For repository-wide orientation, read the [development overview](../../docs/development.md).
-For product status, read the [project README](../../README.md).
-The [capability status table](../../docs/development.md#capability-status) distinguishes implemented calculations from partial integration and development tooling.
+For repository-wide orientation, read the [development overview](/docs/development.md).
+For product status, read the [project README](/README.md).
+The [capability status table](/docs/development.md#capability-status) distinguishes implemented calculations from partial integration and development tooling.
 
 ## Workspace packages
 
@@ -46,8 +46,8 @@ pnpm data:normalize -- --acquisition <directory> --output <directory>
 The compiler verifies source hashes, assets, references, schemas, and domain invariants before it writes a content-addressed normalized dataset.
 If `--output` is omitted, the compiler infers a `normalized` directory next to an acquisition stored under an `acquisitions` directory.
 
-Use the [exporter setup page](../../docs/exporter-development-setup.md) to create an acquisition.
-Use the [exporter manual](../game-data-exporter/README.md) for the full data and validation boundary.
+Use the [exporter setup page](/docs/exporter-development-setup.md) to create an acquisition.
+Use the [exporter manual](/projects/game-data-exporter/README.md) for the full data and validation boundary.
 
 ## Solver workflows
 
@@ -64,11 +64,11 @@ The root workspace scripts group specialized solver work by purpose:
 
 These commands build their required packages before running the owning command-line tool.
 Most solver commands select a normalized dataset from `.local/normalized` unless an explicit dataset path is supplied.
-The [exporter manual's validation section](../game-data-exporter/README.md#export-and-validation-modes) explains workflows that require a game launch.
+The [exporter manual's validation section](/projects/game-data-exporter/README.md#export-and-validation-modes) explains workflows that require a game launch.
 
 ## Generated and local outputs
 
 Build output under `dist` is generated and ignored.
 Workspace state under `.local` is ignored and includes normalized datasets, benchmarks, native-validation evidence, precomputed corpora, verification reports, and runtime packages.
 Do not commit raw game exports, extracted assets, normalized local data, or generated solver artifacts.
-See the [development overview](../../docs/development.md#local-generated-and-publishable-files) for the repository-wide boundary.
+See the [development overview](/docs/development.md#local-generated-and-publishable-files) for the repository-wide boundary.

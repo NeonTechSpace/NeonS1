@@ -1,8 +1,8 @@
 # Exporter development setup
 
 This page is the short onboarding path for contributors who need to build NeonSchedule1's local game-data tools.
-Read the [development overview](development.md) first if you are new to the repository.
-Use the [detailed exporter manual](../projects/game-data-exporter/README.md) for complete commands, output files, validation modes, and troubleshooting rules.
+Read the [development overview](/docs/development.md) first if you are new to the repository.
+Use the [detailed exporter manual](/projects/game-data-exporter/README.md) for complete commands, output files, validation modes, and troubleshooting rules.
 
 ## What the tools do
 
@@ -29,5 +29,5 @@ Both tools are source-only development utilities, not player-facing NeonSchedule
 6. Obtain AssetRipper `1.3.14` separately and verify the published archive hash recorded in the exporter manual
 7. Publish and run the offline extractor only when the export requires the offline mesh pass
 
-Continue with [Build the in-game exporter](../projects/game-data-exporter/README.md#build-the-in-game-exporter) for exact commands.
-Return to the [TypeScript workspace guide](../projects/typescript/README.md) when the acquisition is ready for normalization or solver validation.
+Continue with [Build the in-game exporter](/projects/game-data-exporter/README.md#build-the-in-game-exporter) for exact commands.
+Return to the [TypeScript workspace guide](/projects/typescript/README.md) when the acquisition is ready for normalization or solver validation.

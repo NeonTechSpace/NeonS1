@@ -1,9 +1,9 @@
 # Schedule I data export tools
 
 This is the detailed component manual for NeonSchedule1's local acquisition and native-validation tools.
-Read the [project README](../../README.md) for product status and player-facing plans.
-New contributors should start with the [repository development overview](../../docs/development.md) and the concise [exporter setup page](../../docs/exporter-development-setup.md).
-Return to the [TypeScript workspace guide](../typescript/README.md) for normalization, solver benchmarks, and generated artifact workflows.
+Read the [project README](/README.md) for product status and player-facing plans.
+New contributors should start with the [repository development overview](/docs/development.md) and the concise [exporter setup page](/docs/exporter-development-setup.md).
+Return to the [TypeScript workspace guide](/projects/typescript/README.md) for normalization, solver benchmarks, and generated artifact workflows.
 
 This directory contains two source-only C# tools for exporting data from a locally installed copy of Schedule I:
 

@@ -20,7 +20,7 @@ Using the implemented tools requires a source checkout and local development set
 
 These capabilities are development infrastructure and libraries.
 They are not exposed through a public player interface.
-The [development overview](docs/development.md#capability-status) records their current scope and limits.
+The [development overview](/docs/development.md#capability-status) records their current scope and limits.
 
 ## Planned player features
 
@@ -34,20 +34,20 @@ The [development overview](docs/development.md#capability-status) records their 
 
 ## Choose a path
 
-- [Understand the repository and start contributing](docs/development.md)
-- [Develop or validate the calculation engine](projects/typescript/README.md)
-- [Set up the game-data export tools](docs/exporter-development-setup.md)
-- [Read the detailed exporter manual](projects/game-data-exporter/README.md)
+- [Understand the repository and start contributing](/docs/development.md)
+- [Develop or validate the calculation engine](/projects/typescript/README.md)
+- [Set up the game-data export tools](/docs/exporter-development-setup.md)
+- [Read the detailed exporter manual](/projects/game-data-exporter/README.md)
 
 ## Data boundary
 
 The public repository contains original source code and documentation only.
 Do not commit or publish game binaries, assemblies, decompiled code, saves, player data, raw exports, or extracted game assets.
-The [development overview](docs/development.md#local-generated-and-publishable-files) explains which development outputs stay local.
+The [development overview](/docs/development.md#local-generated-and-publishable-files) explains which development outputs stay local.
 
 ## License
 
-Original NeonSchedule1 source code is licensed under the [Apache License 2.0](LICENSE).
+Original NeonSchedule1 source code is licensed under the [Apache License 2.0](/LICENSE).
 NeonSchedule1 is provided as is, without warranty of any kind, to the extent permitted by applicable law.
 The license contains the complete warranty disclaimer and limitation of liability.
 
