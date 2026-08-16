@@ -37,7 +37,7 @@ The web workspace currently contains only its package manifest.
 | Production and inventory | Partial | Growing, packaging, additives, brick pressing, equipment needs, production time and cost, finished-recipe planning, inventory shortages, purchases, property transfers, capacity-limited transfer arrival timing, selected shopping attribution by property, one-property input readiness, elapsed lifecycle composition through a completed sale, realized profit per game minute, and grow-additive comparisons against a no-additive baseline | Exact lifecycle timing requires caller-supplied movement, exclusive sequential execution, and completed-sale evidence. Exact realized profit requires complete sale revenue and explicit cost treatment. Exact additive ranking requires comparable plans and exact realized profit for each ranked selection. Persistent inventory and live execution remain unavailable |
 | Shopping and movement | Partial | Shop options, seller allocation, multi-stop shopping routes, split pickups, capacity-limited return trips, schedule waiting, and remote delivery | Route claims require movement evidence supplied for the relevant player or vehicle |
 | People and world | Partial | People, relationships, schedules, map projection, shops, properties, services, access zones, and employee navigation data | Normalized data and calculations exist, but there is no live map or game connection |
-| Property blueprints | Partial | Placement validation, construction order, item cost, collision, access, temperature, production capacity, exact installed-pot sprinkler coverage and cycle timing, schedules, transfers, routing inputs, logistics, assigned employee service time, work priority, movement rules, endpoint reachability, and task-internal route candidates | Sprinkler coverage assumes blueprint placements remain fixed during an application and does not simulate mutable pot moisture, exact employee travel depends on current position, task selection, runtime state, and unselected endpoints, and no blueprint editor or public browser exists |
+| Property blueprints | Partial | Placement validation, construction order, item cost, collision, access, temperature, production capacity, exact installed-pot sprinkler coverage and cycle timing, schedules, transfers, routing inputs, logistics, assigned employee service time, work priority, movement rules, endpoint reachability, task-internal route candidates, and Cleaner bin assignment limits and eligibility | Does not simulate mutable pot moisture or live trash state, prove Cleaner endpoint reachability or runtime collection completion, establish exact employee travel without current position and runtime task evidence, or provide a blueprint editor or public browser |
 | Data pipeline | Tooling | Hash verification, schema validation, integrity checks, normalization, stable dataset identity, and corruption checks | Requires a local exporter acquisition |
 | Game-data tools | Tooling | In-game export, native recipe comparison, convex-collider validation, direct asset export, and offline mesh extraction | Windows-only local development tooling that requires the game and third-party prerequisites |
 | Website | Planned | Package ownership is reserved in the workspace | Placeholder only, with no source application or public deployment |
@@ -88,10 +88,10 @@ It does not currently define product architecture, deployment, accounts, persist
 
 ## Compatibility
 
-Exporter version `0.0.22` targets *Schedule I* `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Exporter version `0.0.23` targets *Schedule I* `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a new build and extraction audit.
 
-Normalizer version `0.0.37` defines the current normalized output contract.
+Normalizer version `0.0.38` defines the current normalized output contract.
 Normalized datasets record the game version, normalizer version, source hashes, file hashes, counts, and one dataset identity.
 Solver artifacts bind to compatible dataset and algorithm identities.
 No game acquisition or normalized production dataset is committed to this repository.
