@@ -13,7 +13,7 @@ This directory contains two source-only C# tools for exporting data from a local
 Compiled DLL and executable files are not published as release assets.
 Users compile both projects locally and provide their own game, mod-loader, API, .NET, and AssetRipper installations.
 
-Version `0.0.24` targets Schedule I `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Version `0.0.25` targets Schedule I `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a fresh build and extraction audit.
 
 ## Requirements
@@ -120,7 +120,7 @@ The exporter writes the following data:
 - Recipes, stations, seeds, growing, packaging, additives, soils, quality, and oven transformations
 - Items, prices, shops, suppliers, listings, unlocks, properties, businesses, employee roles, and logistics rules
 - People, customers, preferences, relationships, schedules, and presentations
-- Map regions, locations, services, employee-agent navigation, player movement constants, a candidate player navigation graph, access zones, and shop positions
+- Map regions, locations, services, employee-agent navigation, player movement constants, candidate player navigation and route probes, access zones, and shop positions
 - Buildables, footprints, colliders, surfaces, docks, storage, interaction points, Cleaner trash eligibility, and placement data
 - Mesh, material, texture, sprite, icon, and other visual references
 
@@ -129,6 +129,9 @@ The export records that agent's ID, name, dimensions, slope, step height, and em
 The separate player graph samples the loaded navigation surface whose native settings name is `Humanoid`.
 It is candidate route evidence because player movement uses a character controller rather than a navigation agent.
 The player movement profile records native base walking, sprinting, crouching, controller dimensions, and inventory slot count without applying runtime movement modifiers, current inventory contents, or stack allocation.
+The export inventories loaded `NavMeshLink` and `OffMeshLink` components and asks Unity for agent-filtered paths from each property spawn point to each physical shop position or delivery bay.
+For the shortest complete endpoint path, it compares sampled navigation-boundary margin and route elevation with the loaded player controller dimensions.
+The comparison does not execute player movement or establish behavior for dynamic obstacles, doors, collision layers, scripts, or explicit link traversal.
 
 ## Export and validation modes
 
