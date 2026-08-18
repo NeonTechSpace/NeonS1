@@ -45,6 +45,8 @@ pnpm data:normalize -- --acquisition <directory> --output <directory>
 
 The compiler verifies source hashes, assets, references, schemas, and domain invariants before it writes a content-addressed normalized dataset.
 If `--output` is omitted, the compiler infers a `normalized` directory next to an acquisition stored under an `acquisitions` directory.
+Normalizer `0.0.39` writes the static vehicle graph layers and endpoint evidence to `world/vehicle-navigation.json`.
+That document keeps native costs separate from geometric edge distances and marks layer composition and endpoint-offset traversal as unsupported evidence.
 
 Use the [exporter setup page](/docs/exporter-development-setup.md) to create an acquisition.
 Use the [exporter manual](/projects/game-data-exporter/README.md) for the full data and validation boundary.
