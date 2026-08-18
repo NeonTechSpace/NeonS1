@@ -88,7 +88,7 @@ It does not currently define product architecture, deployment, accounts, persist
 
 ## Compatibility
 
-Exporter version `0.0.27` targets *Schedule I* `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
+Exporter version `0.0.28` targets *Schedule I* `0.4.6f13`, MelonLoader `0.7.3`, S1API `3.1.6`, and AssetRipper `1.3.14`.
 A newer game or dependency version requires a new build and extraction audit.
 
 Normalizer version `0.0.38` defines the current normalized output contract.
